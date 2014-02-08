@@ -1,0 +1,7 @@
+RG Sass commands
+
+cd /Users/phil/Sites/Remarkable-gestures/site/
+
+
+
+sass --watch sass/rg.scss:css/rg.css --style compressed

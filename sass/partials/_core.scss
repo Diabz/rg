@@ -1,0 +1,245 @@
+/* ==========================================================================
+   Site styles
+   ========================================================================== */
+
+#outer-wrapper { 
+	
+}
+
+#inner-wrapper  { 
+	
+}
+
+/*
+#main {
+position: relative;
+display: block;
+width: 100%;
+margin: 0px;
+padding: 0px;
+}
+.content-wrapper{
+
+}
+
+.content{ 
+margin: 0px auto;
+padding: 0px 5%;
+max-width: 71.25em;
+}
+
+#inner-wrapper::after {
+clear: both;
+}
+
+
+body {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	background: #fff;
+	font-weight: 400;
+	font-size: 100%;
+	color: #333;
+	height: 100%;
+}
+
+
+.heading { 
+	padding: 8%;
+}
+
+#main .heading p {
+	padding: 5px 0;
+}
+
+.blue {
+	background: #1414e6;
+	color: white;
+}
+
+
+/* Header
+----------------------------------------------------------------------------------------------------*/
+#header {
+
+	
+		
+}
+
+#header img {
+	
+}
+
+#header .logo {
+	
+}
+
+
+#header a {
+
+}
+
+
+#inner-wrapper:before, #inner-wrapper:after {
+	content:"";
+	display:table
+}
+#inner-wrapper:after {
+	clear:both
+}
+@media screen and (max-width: 60em) {
+.js #inner-wrapper {
+	width:140%;
+	left:-40%
+}
+.csstransforms3d #inner-wrapper {
+	-webkit-perspective:1500px;
+	-moz-perspective:1500px;
+	-ms-perspective:1500px;
+	-o-perspective:1500px;
+	perspective:1500px;
+	-webkit-transform:translate3d(0, 0, 0);
+	-moz-transform:translate3d(0, 0, 0);
+	-ms-transform:translate3d(0, 0, 0);
+	-o-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0);
+	-webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
+	-ms-backface-visibility:hidden;
+	-o-backface-visibility:hidden;
+	backface-visibility:hidden;
+	-webkit-transition:-webkit-transform 400ms ease-in-out;
+	-moz-transition:-moz-transform 400ms ease-in-out;
+	-o-transition:-o-transform 400ms ease-in-out;
+	transition:transform 400ms ease-in-out;
+	-webkit-transform-origin:0 50%;
+	transform-origin:0 50%
+}
+.js-nav.no-csstransforms3d #inner-wrapper {
+	left:0 !important
+}
+.js-nav.csstransforms3d #inner-wrapper {
+	-webkit-transform:translate3d(28.57143%, 0, 0);
+	-moz-transform:translate3d(28.57143%, 0, 0);
+	-ms-transform:translate3d(28.57143%, 0, 0);
+	-o-transform:translate3d(28.57143%, 0, 0);
+	transform:translate3d(28.57143%, 0, 0)
+}
+}
+@media screen and (max-width: 45em) {
+.js #inner-wrapper {
+	width:150%;
+	left:-50%
+}
+.js-nav.csstransforms3d #inner-wrapper {
+	-webkit-transform:translate3d(33.33333%, 0, 0);
+	-moz-transform:translate3d(33.33333%, 0, 0);
+	-ms-transform:translate3d(33.33333%, 0, 0);
+	-o-transform:translate3d(33.33333%, 0, 0);
+	transform:translate3d(33.33333%, 0, 0)
+}
+}
+@media screen and (max-width: 38.75em) {
+.js #inner-wrapper {
+	width:175%;
+	left:-75%
+}
+.js-nav.csstransforms3d #inner-wrapper {
+	-webkit-transform:translate3d(42.85714%, 0, 0);
+	-moz-transform:translate3d(42.85714%, 0, 0);
+	-ms-transform:translate3d(42.85714%, 0, 0);
+	-o-transform:translate3d(42.85714%, 0, 0);
+	transform:translate3d(42.85714%, 0, 0)
+}
+}
+#content {
+	position:relative;
+	overflow:hidden;
+	background:#fff
+}
+@media screen and (max-width: 60em) {
+.js #content {
+	float:right;
+	width:71.42857%
+}
+.csstransforms3d #content {
+	-webkit-transform:translate3d(0, 0, 0);
+	-moz-transform:translate3d(0, 0, 0);
+	-ms-transform:translate3d(0, 0, 0);
+	-o-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0);
+	-webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
+	-ms-backface-visibility:hidden;
+	-o-backface-visibility:hidden;
+	backface-visibility:hidden;
+	-webkit-transition:opacity 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
+	-moz-transition:opacity 400ms ease-in-out, -moz-transform 400ms ease-in-out;
+	-o-transition:opacity 400ms ease-in-out, -o-transform 400ms ease-in-out;
+	transition:opacity 400ms ease-in-out, transform 400ms ease-in-out
+}
+}
+@media screen and (max-width: 45em) {
+.js #content {
+	width:66.66667%
+}
+}
+@media screen and (max-width: 38.75em) {
+.js #content {
+	width:57.14286%
+}
+}
+#nav {
+	position:relative
+}
+@media screen and (max-width: 60em) {
+.js #nav {
+	float:left;
+	width:28.57143%
+}
+.js #nav .block {
+	padding-top:17.5% !important
+}
+.csstransforms3d #nav {
+	-webkit-transform:translate3d(0, 0, 0);
+	-moz-transform:translate3d(0, 0, 0);
+	-ms-transform:translate3d(0, 0, 0);
+	-o-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0);
+	-webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
+	-ms-backface-visibility:hidden;
+	-o-backface-visibility:hidden;
+	backface-visibility:hidden;
+	-webkit-transition:-webkit-transform 400ms ease-in-out;
+	-moz-transition:-moz-transform 400ms ease-in-out;
+	-o-transition:-o-transform 400ms ease-in-out;
+	transition:transform 400ms ease-in-out
+}
+.js-nav.csstransforms3d #nav {
+	-webkit-transform:translate3d(0, 0, 0);
+	-moz-transform:translate3d(0, 0, 0);
+	-ms-transform:translate3d(0, 0, 0);
+	-o-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0)
+}
+}
+@media screen and (max-width: 45em) {
+.js #nav {
+	float:left;
+	width:33.33333%
+}
+.js #nav .block {
+	padding-top:20% !important
+}
+}
+@media screen and (max-width: 38.75em) {
+.js #nav {
+	width:42.85714%
+}
+.js #nav .block {
+	padding-top:13.33333% !important
+}
+}
+
+*/
+
