@@ -60,6 +60,7 @@
   .csstransforms3d.csstransitions.js-nav #nav-links .block {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
+<<<<<<< HEAD
     -webkit-transform: translate(0, 0, 0);
     -moz-transform: translate(0, 0, 0);
     -ms-transform: translate(0, 0, 0);
@@ -67,3 +68,11 @@
     transform: translate(0, 0, 0);
   }
   
+=======
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+>>>>>>> parent of acfeea2... v0.2
