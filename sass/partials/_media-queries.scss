@@ -24,12 +24,14 @@
 @media screen and (min-width: 1000px){
   //Change menu tray width 
   .csstransforms3d.csstransitions.js-nav #view-container {
+  /*
     -webkit-transform: translate3d(-25%, 0, 0) scale3d(1, 1, 1);
     -moz-transform: translate3d(-25%, 0, 0) scale3d(1, 1, 1);
     -ms-transform: translate3d(-25%, 0, 0) scale3d(1, 1, 1);
     -o-transform: translate3d(-25%, 0, 0) scale3d(1, 1, 1);
     transform: translate3d(-25%, 0, 0) scale3d(1, 1, 1);
 	}
+	*/
 	.js-ready #nav-links {
 	   width: 25%;
 	}
