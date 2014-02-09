@@ -9,6 +9,113 @@
 		<meta name="author" content="Phil Thornley">
     	<link rel="stylesheet" type="text/css" href="/css/rg.css" />
     	<script async src="js/modernizr.js"></script>
+    	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    	<script>
+    		
+		    var previousScroll = 0, // previous scroll position
+		        menuOffset = 54, // height of menu (once scroll passed it, menu is hidden)
+		        detachPoint = 650, // point of detach (after scroll passed it, menu is fixed)
+		        hideShowOffset = 6; // scrolling value after which triggers hide/show menu
+		
+		    // on scroll hide/show menu
+		    $(window).scroll(function() {
+		      if (!$('header').hasClass('expanded')) {
+		        var currentScroll = $(this).scrollTop(), // gets current scroll position
+		            scrollDifference = Math.abs(currentScroll - previousScroll); // calculates how fast user is scrolling
+		
+		        // if scrolled past menu
+		        if (currentScroll > menuOffset) {
+		          // if scrolled past detach point add class to fix menu
+		          if (currentScroll > detachPoint) {
+		            if (!$('header').hasClass('detached'))
+		              $('header').addClass('detached');
+		          }
+		
+		          // if scrolling faster than hideShowOffset hide/show menu
+		          if (scrollDifference >= hideShowOffset) {
+		            if (currentScroll > previousScroll) {
+		              // scrolling down; hide menu
+		              if (!$('header').hasClass('invisible'))
+		                $('header').addClass('invisible');
+		            } else {
+		              // scrolling up; show menu
+		              if ($('header').hasClass('invisible'))
+		                $('header').removeClass('invisible');
+		            }
+		          }
+		        } else {
+		          // only remove “detached” class if user is at the top of document (menu jump fix)
+		          if (currentScroll <= 0){
+		            $('header').removeClass();
+		          }
+		        }
+		
+		        // if user is at the bottom of document show menu
+		        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+		          $('header').removeClass('invisible');
+		        }
+		
+		        // replace previous scroll position with new one
+		        previousScroll = currentScroll;
+		      }
+		    })
+		
+		    // shows/hides navigation’s popover if class "expanded"
+		    $('header').on('click touchstart', function(event) {
+		      showHideNav();
+		      event.preventDefault();
+		    })
+		
+		    // clicking anywhere inside navigation or heading won’t close navigation’s popover
+		    $('#navigation').on('click touchstart', function(event){
+		        event.stopPropagation();
+		    })
+		
+		    // checks if navigation’s popover is shown
+		    function showHideNav() {
+		      if ($('header').hasClass('expanded')) {
+		        hideNav();
+		      } else {
+		        showNav();
+		      }
+		    }
+		
+		    // shows the navigation’s popover
+		    function showNav() {
+		      $('header').removeClass('invisible').addClass('expanded');
+		      $('#container').addClass('blurred');
+		      window.setTimeout(function(){$('body').addClass('no_scroll');}, 200); // Firefox hack. Hides scrollbar as soon as menu animation is done
+		      $('#navigation a').attr('tabindex', ''); // links inside navigation should be TAB selectable
+		    }
+		
+		    // hides the navigation’s popover
+		    function hideNav() {
+		      $('#container').removeClass('blurred');
+		      window.setTimeout(function(){$('body').removeClass();}, 10); // allow animations to start before removing class (Firefox)
+		      $('header').removeClass('expanded');
+		      $('#navigation a').attr('tabindex', '-1'); // links inside hidden navigation should not be TAB selectable
+		      $('.icon').blur(); // deselect icon when navigation is hidden
+		    }
+		
+		    // keyboard shortcuts
+		    $('body').keydown(function(e) {
+		      // menu accessible via TAB as well
+		      if ($("nav .icon").is(":focus")) {
+		        // if ENTER/SPACE show/hide menu
+		        if (e.keyCode === 13 || e.keyCode === 32) {
+		          showHideNav();
+		          e.preventDefault();
+		        }
+		      }
+		
+		      // if ESC show/hide menu
+		      if (e.keyCode === 27 || e.keyCode === 77) {
+		        showHideNav();
+		        e.preventDefault();
+		      }
+		    })
+  		    
+		</script>
     </head>
   
 	<body id="" itemscope itemtype="http://schema.org/WebPage">
@@ -25,7 +132,7 @@
         			</div>
    				</header>
    				
-   				   				<nav id="nav-links" role="navigation">
+   				<nav id="nav-links" role="navigation">
         			<div class="block">
             			<h2>Menu</h2>
             			<ul>
@@ -38,7 +145,7 @@
                 			<span class="close-btn--text">Return to Content</span></a>
                 	</div>
                 </nav>
-
+   				
    				
 			
     			<div role="main" id="main" class=""><!-- Start main -->
@@ -124,8 +231,6 @@
 						<li><a href="#">This is the title of the article or post</a></li>
 					</ol>
 					</div><!-- End of content -->
-				
-				
 				
 				</div><!-- End of main -->
 				

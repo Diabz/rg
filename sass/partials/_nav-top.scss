@@ -1,15 +1,47 @@
 $nav-opacity: 0.8;
 
-#nav-top {
+header {
 	z-index: 100;
-	position: relative;
+	position: absolute;
+	top: 0;
+	width: 100%;
 	background:rgba(1, 1, 1, .14);
+	-webkit-transform: translate(0,0);
+	-moz-transform: translate(0,0);
+	-o-transform: translate(0,0);
+	transform: translate(0,0);
+	-webkit-transition: -webkit-transform .4s, height .3s, background .4s;
+	-moz-transition: -moz-transform .4s, height .3s, background .4s;
+	transition: transform .4s, height .3s, background .4s;
 }
 
-<<<<<<< HEAD
+/* when hidden it goes up */
+header.invisible {
+	-webkit-transform: translate(0,-64px);
+	-moz-transform: translate(0,-64px);
+	-o-transform: translate(0,-64px);
+	transform: translate(0,-64px);
+	-webkit-transition: -webkit-transform .2s;
+	-moz-transition: -moz-transform .2s;
+	-o-transition: -o-transform .2s;
+	transition: transform .2s;
+	opacity: 0;
+}
 
-=======
->>>>>>> parent of acfeea2... v0.2
+
+/* when shown & detached position is fixed */
+header.detached {
+  position: fixed!important;
+  top:0;
+  left:0;
+  background: black;
+  -webkit-transition: -webkit-transform .3s, height .3s, background .4s, opacity .3s;
+  -moz-transition: -moz-transform .3s, height .3s, background .4s, opacity .3s;
+  -o-transition: -o-transform .3s, height .3s, background .4s, opacity .3s;
+  transition: transform .3s, height .3s, background .4s, opacity .3s;
+}
+
+/*
 .nav-btn {
 	display: block;
 	@include rem(width, 3.2rem);
@@ -40,10 +72,7 @@ a.nav-btn {
 	text-decoration: none;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of acfeea2... v0.2
+*/
 .js-nav .nav-btn .icon-menu:before {
 	content: "\e602"; 
 }

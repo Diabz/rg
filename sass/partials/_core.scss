@@ -97,11 +97,11 @@ body {
 	-ms-perspective:1500px;
 	-o-perspective:1500px;
 	perspective:1500px;
-	-webkit-transform:translate(0, 0);
-	-moz-transform:translate(0, 0);
-	-ms-transform:translate(0, 0);
-	-o-transform:translate(0, 0);
-	transform:translate(0, 0);
+	-webkit-transform:translate3d(0, 0, 0);
+	-moz-transform:translate3d(0, 0, 0);
+	-ms-transform:translate3d(0, 0, 0);
+	-o-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0);
 	-webkit-backface-visibility:hidden;
 	-moz-backface-visibility:hidden;
 	-ms-backface-visibility:hidden;
@@ -118,11 +118,11 @@ body {
 	left:0 !important
 }
 .js-nav.csstransforms3d #inner-wrapper {
-	-webkit-transform:translate(28.57143%, 0);
-	-moz-transform:translate(28.57143%, 0);
-	-ms-transform:translate(28.57143%, 0);
-	-o-transform:translate(28.57143%, 0);
-	transform:translate(28.57143%, 0)
+	-webkit-transform:translate3d(28.57143%, 0, 0);
+	-moz-transform:translate3d(28.57143%, 0, 0);
+	-ms-transform:translate3d(28.57143%, 0, 0);
+	-o-transform:translate3d(28.57143%, 0, 0);
+	transform:translate3d(28.57143%, 0, 0)
 }
 }
 @media screen and (max-width: 45em) {
@@ -131,11 +131,11 @@ body {
 	left:-50%
 }
 .js-nav.csstransforms3d #inner-wrapper {
-	-webkit-transform:translate(33.33333%, 0);
-	-moz-transform:translate(33.33333%, 0);
-	-ms-transform:translate(33.33333%, 0);
-	-o-transform:translate(33.33333%, 0);
-	transform:translate(33.33333%, 0)
+	-webkit-transform:translate3d(33.33333%, 0, 0);
+	-moz-transform:translate3d(33.33333%, 0, 0);
+	-ms-transform:translate3d(33.33333%, 0, 0);
+	-o-transform:translate3d(33.33333%, 0, 0);
+	transform:translate3d(33.33333%, 0, 0)
 }
 }
 @media screen and (max-width: 38.75em) {
@@ -144,11 +144,11 @@ body {
 	left:-75%
 }
 .js-nav.csstransforms3d #inner-wrapper {
-	-webkit-transform:translate(42.85714%, 0);
-	-moz-transform:translate(42.85714%, 0);
-	-ms-transform:translate(42.85714%, 0);
-	-o-transform:translate(42.85714%, 0);
-	transform:translate(42.85714%, 0)
+	-webkit-transform:translate3d(42.85714%, 0, 0);
+	-moz-transform:translate3d(42.85714%, 0, 0);
+	-ms-transform:translate3d(42.85714%, 0, 0);
+	-o-transform:translate3d(42.85714%, 0, 0);
+	transform:translate3d(42.85714%, 0, 0)
 }
 }
 #content {
@@ -162,11 +162,11 @@ body {
 	width:71.42857%
 }
 .csstransforms3d #content {
-	-webkit-transform:translate(0, 0);
-	-moz-transform:translate(0, 0);
-	-ms-transform:translate(0, 0);
-	-o-transform:translate(0, 0);
-	transform:translate(0, 0);
+	-webkit-transform:translate3d(0, 0, 0);
+	-moz-transform:translate3d(0, 0, 0);
+	-ms-transform:translate3d(0, 0, 0);
+	-o-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0);
 	-webkit-backface-visibility:hidden;
 	-moz-backface-visibility:hidden;
 	-ms-backface-visibility:hidden;
@@ -200,11 +200,11 @@ body {
 	padding-top:17.5% !important
 }
 .csstransforms3d #nav {
-	-webkit-transform:translate(0, 0);
-	-moz-transform:translate(0, 0);
-	-ms-transform:translate(0, 0);
-	-o-transform:translate(0, 0);
-	transform:translate(0, 0);
+	-webkit-transform:translate3d(0, 0, 0);
+	-moz-transform:translate3d(0, 0, 0);
+	-ms-transform:translate3d(0, 0, 0);
+	-o-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0);
 	-webkit-backface-visibility:hidden;
 	-moz-backface-visibility:hidden;
 	-ms-backface-visibility:hidden;
@@ -216,11 +216,11 @@ body {
 	transition:transform 400ms ease-in-out
 }
 .js-nav.csstransforms3d #nav {
-	-webkit-transform:translate(0, 0);
-	-moz-transform:translate(0, 0);
-	-ms-transform:translate(0, 0);
-	-o-transform:translate(0, 0);
-	transform:translate(0, 0)
+	-webkit-transform:translate3d(0, 0, 0);
+	-moz-transform:translate3d(0, 0, 0);
+	-ms-transform:translate3d(0, 0, 0);
+	-o-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0)
 }
 }
 @media screen and (max-width: 45em) {
