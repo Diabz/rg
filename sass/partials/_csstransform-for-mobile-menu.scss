@@ -1,5 +1,5 @@
 .csstransforms3d.csstransitions.js-ready #nav-links {
-    right:0;
+    right:-25%;
     -webkit-transform: translate(0%, 0);
     -moz-transform: translate(-100%, 0);
     -ms-transform: translate(-100%, 0);
@@ -11,6 +11,10 @@
     -o-backface-visibility: hidden;
     backface-visibility: hidden;
   }
+
+.csstransforms3d.csstransitions.js-ready.js-nav #nav-links {
+    right:0;
+}  
   
   /*
   .csstransforms3d.csstransitions.js-ready #view-container {
