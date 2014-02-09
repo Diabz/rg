@@ -11,6 +11,8 @@
     -o-backface-visibility: hidden;
     backface-visibility: hidden;
   }
+  
+  /*
   .csstransforms3d.csstransitions.js-ready #view-container {
     right: 0 !important;
     -webkit-transform: translate(0, 0);
@@ -36,6 +38,7 @@
     -o-transform: translate(-70%, 0);
     transform: translate(-70%, 0);
   }
+  */
 
   .csstransforms3d.csstransitions.js-ready #nav-links .block {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);

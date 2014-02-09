@@ -9,14 +9,123 @@
 		<meta name="author" content="Phil Thornley">
     	<link rel="stylesheet" type="text/css" href="/css/rg.css" />
     	<script async src="js/modernizr.js"></script>
+    	
+    	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    	<script>
+		    var previousScroll = 0, // previous scroll position
+		        menuOffset = 54, // height of menu (once scroll passed it, menu is hidden)
+		        detachPoint = 650, // point of detach (after scroll passed it, menu is fixed)
+		        hideShowOffset = 6; // scrolling value after which triggers hide/show menu
+		
+		    // on scroll hide/show menu
+		    $(window).scroll(function() {
+		      if (!$('header').hasClass('expanded')) {
+		        var currentScroll = $(this).scrollTop(), // gets current scroll position
+		            scrollDifference = Math.abs(currentScroll - previousScroll); // calculates how fast user is scrolling
+		
+		        // if scrolled past menu
+		        if (currentScroll > menuOffset) {
+		          // if scrolled past detach point add class to fix menu
+		          if (currentScroll > detachPoint) {
+		            if (!$('header').hasClass('detached'))
+		              $('header').addClass('detached');
+		          }
+		
+		          // if scrolling faster than hideShowOffset hide/show menu
+		          if (scrollDifference >= hideShowOffset) {
+		            if (currentScroll > previousScroll) {
+		              // scrolling down; hide menu
+		              if (!$('header').hasClass('invisible'))
+		                $('header').addClass('invisible');
+		            } else {
+		              // scrolling up; show menu
+		              if ($('header').hasClass('invisible'))
+		                $('header').removeClass('invisible');
+		            }
+		          }
+		        } else {
+		          // only remove “detached” class if user is at the top of document (menu jump fix)
+		          if (currentScroll <= 0){
+		            $('header').removeClass('detached');
+		          }
+		        }
+		
+		        // if user is at the bottom of document show menu
+		        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+		          $('header').removeClass('invisible');
+		        }
+		
+		        // replace previous scroll position with new one
+		        previousScroll = currentScroll;
+		      }
+		    })
+		
+		    // shows/hides navigation’s popover if class "expanded"
+		    $('header').on('click touchstart', function(event) {
+		      showHideNav();
+		      event.preventDefault();
+		    })
+		
+		    // clicking anywhere inside navigation or heading won’t close navigation’s popover
+		    $('#navigation').on('click touchstart', function(event){
+		        event.stopPropagation();
+		    })
+		
+		    // checks if navigation’s popover is shown
+		    function showHideNav() {
+		      if ($('header').hasClass('expanded')) {
+		        hideNav();
+		      } else {
+		        showNav();
+		      }
+		    }
+		
+		    // shows the navigation’s popover
+		    function showNav() {
+		      $('header').removeClass('invisible').addClass('expanded');
+		      $('#container').addClass('blurred');
+		      window.setTimeout(function(){$('body').addClass('no_scroll');}, 200); // Firefox hack. Hides scrollbar as soon as menu animation is done
+		      $('#navigation a').attr('tabindex', ''); // links inside navigation should be TAB selectable
+		    }
+		
+		    // hides the navigation’s popover
+		    function hideNav() {
+		      $('#container').removeClass('blurred');
+		      window.setTimeout(function(){$('body').removeClass();}, 10); // allow animations to start before removing class (Firefox)
+		      $('header').removeClass('expanded');
+		      $('#navigation a').attr('tabindex', '-1'); // links inside hidden navigation should not be TAB selectable
+		      $('.icon').blur(); // deselect icon when navigation is hidden
+		    }
+		
+		    // keyboard shortcuts
+		    $('body').keydown(function(e) {
+		      // menu accessible via TAB as well
+		      if ($("nav .icon").is(":focus")) {
+		        // if ENTER/SPACE show/hide menu
+		        if (e.keyCode === 13 || e.keyCode === 32) {
+		          showHideNav();
+		          e.preventDefault();
+		        }
+		      }
+		
+		      // if ESC show/hide menu
+		      if (e.keyCode === 27 || e.keyCode === 77) {
+		        showHideNav();
+		        e.preventDefault();
+		      }
+		    })
+		  </script>
+    	
     </head>
   
 	<body id="" itemscope itemtype="http://schema.org/WebPage">
 		<a id="skip-nav" class="accessibility-text" accesskey="n" href="#nav-links" title="Skip to navigation">Skip to navigation</a>
 		<div id="viewport"><!-- Start Viewport -->
+		
+		
 			<div id="view-container"><!-- Start View-Container -->
 				
-				<header id="nav-top" role="banner">
+				<header id="nav-top" role="banner" class="slide">
         			<div class="block--nav">
             			<a class="nav-btn" id="nav-open-btn" href="#nav-links">
             				<span class="icon-menu"></span>
@@ -25,23 +134,11 @@
         			</div>
    				</header>
    				
-   				<nav id="nav-links" role="navigation">
-        			<div class="block">
-            			<h2>Menu</h2>
-            			<ul>
-                			<li class="is-active"><a href="#">Home</a></li>
-                			<li><a href="#">About me</a></li>
-                			<li><a href="#">Articles</a></li>
-                		</ul>
-                		<a class="close-btn" id="nav-close-btn" href="#nav-top">
-                			<span class="icon-close"></span>
-                			<span class="close-btn--text">Return to Content</span></a>
-                	</div>
-                </nav>
+   				
    				
    				
 			
-    			<div role="main" id="main" class=""><!-- Start main -->
+    			<div role="main" id="main" class="slide"><!-- Start main -->
     				<div class="block--intro"><!-- Start intro block -->
     			
 						<h1 class="visually-hidden">This is the main heading of the page article</h1>
@@ -125,10 +222,24 @@
 					</ol>
 					</div><!-- End of content -->
 				
+				
+				<nav id="nav-links" role="navigation" class="slide__reverse">
+        			<div class="block">
+            			<h2>Menu</h2>
+            			<ul>
+                			<li class="is-active"><a href="#">Home</a></li>
+                			<li><a href="#">About me</a></li>
+                			<li><a href="#">Articles</a></li>
+                		</ul>
+                		<a class="close-btn" id="nav-close-btn" href="#nav-top">
+                			<span class="icon-close"></span>
+                			<span class="close-btn--text">Return to Content</span></a>
+                	</div>
+                </nav>
+
 				</div><!-- End of main -->
 				
-				
-				
+								
 								<a id="nav-return" href="#top"><span>Return to top of page</span></a>
 							
 		
