@@ -41,7 +41,7 @@ header.detached {
   transition: transform .3s, height .3s, background .4s, opacity .3s;
 }
 
-/*
+
 .nav-btn {
 	display: block;
 	@include rem(width, 3.2rem);
@@ -72,7 +72,7 @@ a.nav-btn {
 	text-decoration: none;
 }
 
-*/
+
 .js-nav .nav-btn .icon-menu:before {
 	content: "\e602"; 
 }
