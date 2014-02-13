@@ -1,0 +1,10 @@
+.about-me {
+	text-align: center;
+	@include rem(margin-bottom, 4rem);
+}
+
+.about-me img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}

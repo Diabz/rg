@@ -1,10 +1,10 @@
 .csstransforms3d.csstransitions.js-ready #nav-links {
     right:-25%;
     -webkit-transform: translate(0%, 0);
-    -moz-transform: translate(-100%, 0);
-    -ms-transform: translate(-100%, 0);
-    -o-transform: translate(-100%, 0);
-    transform: translate(-100%, 0);
+    -moz-transform: translate(0%, 0);
+    -ms-transform: translate(0%, 0);
+    -o-transform: translate(0%, 0);
+    transform: translate(0%, 0);
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
@@ -42,7 +42,8 @@
     -o-transform: translate(-70%, 0);
     transform: translate(-70%, 0);
   }
-  */
+ 
+ */
 
   .csstransforms3d.csstransitions.js-ready #nav-links .block {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
@@ -73,3 +74,5 @@
     -o-transform: translate(0, 0);
     transform: translate(0, 0);
   }
+  
+   

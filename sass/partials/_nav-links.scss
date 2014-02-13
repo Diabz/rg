@@ -1,13 +1,16 @@
 
-#nav-links {
+.js-ready #nav-links {
 	position: fixed;
 	top: 0;
+}
+
+#nav-links{
 	padding-top: 0em;
 	z-index: 200;
 	overflow: hidden;
 	width: 100%;
 	color: rgb(255,255,255);
-	background: #333333;
+	background: #333;
 	@include rem(font-size, 2.2rem);
 	@include rem(line-height, 3.3rem);
 	@include rem(margin, 0 0 3.3rem);
