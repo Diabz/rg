@@ -21,6 +21,17 @@ $nav-opacity: 0.8;
 	background:rgba(1, 1, 1, .14);
 }
 
+#nav-top.detached {
+ 	opacity: 0;
+	position: fixed;
+	background:rgba(1, 1, 1, .54);
+	-webkit-transition: -webkit-transform .3s, height .3s, background .4s, opacity .3s;
+	-moz-transition: -moz-transform .3s, height .3s, background .4s, opacity .3s;
+	-o-transition: -o-transform .3s, height .3s, background .4s, opacity .3s;
+	transition: transform .3s, height .3s, background .4s, opacity .3s;
+	opacity: 1;
+}
+
 #nav-top.invisible {
 	-webkit-transform: translate(0,-64px);
 	-moz-transform: translate(0,-64px);
@@ -33,16 +44,7 @@ $nav-opacity: 0.8;
 	opacity: 0;
 }
 
-#nav-top.detached {
- 	opacity: 0;
-	position: fixed;
-	background:rgba(1, 1, 1, .54);
-	-webkit-transition: -webkit-transform .3s, height .3s, background .4s, opacity .3s;
-	-moz-transition: -moz-transform .3s, height .3s, background .4s, opacity .3s;
-	-o-transition: -o-transform .3s, height .3s, background .4s, opacity .3s;
-	transition: transform .3s, height .3s, background .4s, opacity .3s;
-	opacity: 1;
-}
+
 
 /* increases menu width & height */
 #nav-top.expanded {

@@ -1,5 +1,5 @@
 .slide {
-	-webkit-transition:-webkit-transform .2s linear;
+	-webkit-transition:-webkit-transform .2s linear; //Apply transitions to transfom properties only
     -webkit-transform: translate3d(0,0,0);
 }
 
