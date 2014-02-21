@@ -3,9 +3,10 @@
  *  Copyright (c) David Bushell | http://dbushell.com/
  *
  */
-
+ console.log('menu.js loaded');
 (function(window, document, undefined)
 {
+ console.log('1st function loaded');
     // helper functions
 
     var trim = function(str)
@@ -32,6 +33,7 @@
 
     var hasParent = function(el, id)
     {
+    console.log('line 36');
         if (el) {
             do {
                 if (el.id === id) {
@@ -49,6 +51,7 @@
     // normalize vendor prefixes
 
     var doc = document.documentElement;
+console.log('line 53');
     var transform_prop = window.Modernizr.prefixed('transform'),
         transition_prop = window.Modernizr.prefixed('transition'),
         transition_end = (function() {
@@ -64,6 +67,7 @@
 
     document.App = (function()
     {
+ console.log('second function loaded');
         var _init = false, app = { };
 
         var inner = document.getElementById('view-container'),
@@ -71,13 +75,16 @@
             nav_open = false,
 
             nav_class = 'js-nav';
+console.log('third function loaded');
 
         app.init = function()
         {
+        console.log('line 81');
             if (_init) {
                 return;
             }
             _init = true;
+console.log('line 86');
             var closeNavEnd = function(e)
             {
                 if (e && e.target === inner) {
@@ -85,6 +92,7 @@
                 }
                 nav_open = false;
             };
+console.log('line 94');
             app.closeNav =function()
             {
                 if (nav_open) {
@@ -98,6 +106,7 @@
                 }
                 removeClass(doc, nav_class);
             };
+console.log('line 108');
             app.openNav = function()
             {
                 if (nav_open) {
@@ -124,6 +133,7 @@
 
             // close nav with main "close" button
             document.getElementById('nav-close-btn').addEventListener('click', app.toggleNav, false);
+console.log('line 135');
             // close nav by touching the partial off-screen content
             document.addEventListener('click', function(e)
             {
@@ -133,8 +143,11 @@
                 }
             },
             true);
+            
+            console.log('line 144');
 
             addClass(doc, 'js-ready');
+
         };
 
         return app;
@@ -145,6 +158,7 @@
     	//Changed to load JS after document is loaded anyway, so initiating fuction directly
         //document.addEventListener('DOMContentLoaded', document.App.init, false);
         document.App.init();
+        console.log('forth function loaded');
     }
 
 })(window, window.document);
