@@ -121,12 +121,7 @@
 
             // open nav with main "nav" button
             document.getElementById('nav-open-btn').addEventListener('click', app.toggleNav, false);
-            
-            var consolelistener = function (result) {
-	            console.log('clickatyboo');
-			};
-			
-            document.getElementById('nav-open-btn').addEventListener('click', consolelistener, false);
+
             // close nav with main "close" button
             document.getElementById('nav-close-btn').addEventListener('click', app.toggleNav, false);
             // close nav by touching the partial off-screen content

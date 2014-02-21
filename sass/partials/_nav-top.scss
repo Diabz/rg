@@ -1,8 +1,57 @@
 $nav-opacity: 0.8;
 
+.js-ready #nav-top {
+	//position: absolute;
+	top: 0;
+}
+
 #nav-top {
 	z-index: 100;
-	position: relative;
+	
+	width: 100%;
+	/*
+	-webkit-transform: translate(0,0);
+	-moz-transform: translate(0,0);
+	-o-transform: translate(0,0);
+	transform: translate(0,0);
+	-webkit-transition: -webkit-transform .4s, height .3s, background .4s;
+	-moz-transition: -moz-transform .4s, height .3s, background .4s;
+	transition: transform .4s, height .3s, background .4s;
+	*/
+	background:rgba(1, 1, 1, .14);
+}
+
+#nav-top.detached {
+ 	opacity: 0;
+	position: fixed;
+	background:rgba(1, 1, 1, .54);
+	-webkit-transition: -webkit-transform .3s, height .3s, background .4s, opacity .3s;
+	-moz-transition: -moz-transform .3s, height .3s, background .4s, opacity .3s;
+	-o-transition: -o-transform .3s, height .3s, background .4s, opacity .3s;
+	transition: transform .3s, height .3s, background .4s, opacity .3s;
+	opacity: 1;
+}
+
+#nav-top.invisible {
+	-webkit-transform: translate(0,-64px);
+	-moz-transform: translate(0,-64px);
+	-o-transform: translate(0,-64px);
+	transform: translate(0,-64px);
+	-webkit-transition: -webkit-transform .2s;
+	-moz-transition: -moz-transform .2s;
+	-o-transition: -o-transform .2s;
+	transition: transform .2s;
+	opacity: 0;
+}
+
+
+
+/* increases menu width & height */
+#nav-top.expanded {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	cursor: default;
 	background:rgba(1, 1, 1, .14);
 }
 
