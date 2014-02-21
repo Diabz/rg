@@ -46,26 +46,44 @@
 	.js-nav .nav-btn .icon-menu:before {
 		content: "\e601"; 
 	}
+	
+	.js-nav .slide {
+		-webkit-transform: translate3d(-25%, 0, 0);
+	}
 }
 
 @media screen and (min-width: 760px) and (max-width: 999px){
-  .csstransforms3d.csstransitions.js-nav #view-container {
-    -webkit-transform: translate(-40%, 0);
-    -moz-transform: translate(-40%, 0);
-    -ms-transform: translate(-40%, 0);
-    -o-transform: translate(-40%, 0);
-    transform: translate(-40%, 0);
-	}
+
+	//Initialise width and position off screen
 	.js-ready #nav-links {
 	   width: 40%;
 	}
+	
+  	//Sliding properties
+  	/*.csstransforms3d.csstransitions.js-nav #view-container {
+	    -webkit-transform: translate(-40%, 0);
+	    -moz-transform: translate(-40%, 0);
+	    -ms-transform: translate(-40%, 0);
+	    -o-transform: translate(-40%, 0);
+	    transform: translate(-40%, 0);
+	}
+	
+	.csstransforms3d.csstransitions.js-ready.js-nav #nav-links {
+		right: -40%;
+	}*/
+	
 	// Make menu tray close button (X) appear 
 	.js-ready #nav-links .close-btn {
 		display: block;
 	}
+	
 	// Force the menu button that's always visible to keep the three lines
 	.js-nav .nav-btn .icon-menu:before {
 		content: "\e601"; 
+	}
+	
+	.js-nav .slide {
+		-webkit-transform: translate3d(-40%, 0, 0);
 	}
 }
 
