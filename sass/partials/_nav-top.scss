@@ -1,13 +1,9 @@
 $nav-opacity: 0.8;
 
-.js-ready #nav-top {
-	position: absolute;
-	top: 0;
-}
-
 #nav-top {
 	z-index: 100;
-	
+	position: absolute;
+	top: 0;
 	width: 100%;
 	/*
 	-webkit-transform: translate(0,0);
