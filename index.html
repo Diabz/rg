@@ -16,7 +16,7 @@
 		    var previousScroll = 0, // previous scroll position
 		        menuOffset = 54, // height of menu (once scroll passed it, menu is hidden)
 		        detachPoint = 150, // point of detach (after scroll passed it, menu is fixed)
-		        hideShowOffset = 6; // scrolling value after which triggers hide/show menu
+		        hideShowOffset = 1; // scrolling value after which triggers hide/show menu
 		
 		    // on scroll hide/show menu
 		    $(window).scroll(function() {
@@ -26,12 +26,7 @@
 		
 		        // if scrolled past menu
 		        if (currentScroll > menuOffset) {
-		          // if scrolled past detach point add class to fix menu
-		          if (currentScroll > detachPoint) {
-		            if (!$('header').hasClass('detached'))
-		              $('header').addClass('detached');
-		          }
-		
+		          
 		          // if scrolling faster than hideShowOffset hide/show menu
 		          if (scrollDifference >= hideShowOffset) {
 		            if (currentScroll > previousScroll) {
@@ -44,10 +39,24 @@
 		                $('header').removeClass('invisible');
 		            }
 		          }
+		          
+		          // if scrolled past detach point add class to fix menu
+		          if (currentScroll > detachPoint) {
+		            if (!$('header').hasClass('detached'))
+		              $('header').addClass('detached');
+		            if (!$('#main').hasClass('detached'))
+		              $('#main').addClass('detached');
+		          }
+		          
+		
+		          
 		        } else {
 		          // only remove “detached” class if user is at the top of document (menu jump fix)
 		          if (currentScroll <= 0){
+		          	$('header').removeClass('invisible');
 		            $('header').removeClass('detached');
+		            $('#main').removeClass('detached');
+		            
 		          }
 		        }
 		
