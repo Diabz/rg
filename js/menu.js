@@ -3,9 +3,9 @@
  *  Copyright (c) David Bushell | http://dbushell.com/
  *
  */
-
 (function(window, document, undefined)
 {
+
     // helper functions
 
     var trim = function(str)
@@ -49,6 +49,7 @@
     // normalize vendor prefixes
 
     var doc = document.documentElement;
+
     var transform_prop = window.Modernizr.prefixed('transform'),
         transition_prop = window.Modernizr.prefixed('transition'),
         transition_end = (function() {
@@ -62,15 +63,17 @@
             return props.hasOwnProperty(transition_prop) ? props[transition_prop] : false;
         })();
 
-    document.App = (function()
+    window.App = (function()
     {
+
         var _init = false, app = { };
 
-        var inner = document.getElementById('view-container'),
+        var inner = document.getElementById('inner-wrap'),
 
             nav_open = false,
 
             nav_class = 'js-nav';
+
 
         app.init = function()
         {
@@ -78,6 +81,7 @@
                 return;
             }
             _init = true;
+
             var closeNavEnd = function(e)
             {
                 if (e && e.target === inner) {
@@ -85,6 +89,7 @@
                 }
                 nav_open = false;
             };
+
             app.closeNav =function()
             {
                 if (nav_open) {
@@ -98,6 +103,7 @@
                 }
                 removeClass(doc, nav_class);
             };
+
             app.openNav = function()
             {
                 if (nav_open) {
@@ -111,8 +117,13 @@
             {
                 if (nav_open && hasClass(doc, nav_class)) {
                     app.closeNav();
+                    console.log('closeNav invoked');
+                    console.log(nav_open);
+                    
                 } else {
                     app.openNav();
+                    console.log('openNav invoked');
+                    console.log(nav_open);
                 }
                 if (e) {
                     e.preventDefault();
@@ -124,10 +135,11 @@
 
             // close nav with main "close" button
             document.getElementById('nav-close-btn').addEventListener('click', app.toggleNav, false);
+
             // close nav by touching the partial off-screen content
             document.addEventListener('click', function(e)
             {
-                if (nav_open && !hasParent(e.target, 'nav-links')) {
+                if (nav_open && !hasParent(e.target, 'nav')) {
                     e.preventDefault();
                     app.closeNav();
                 }
@@ -135,16 +147,15 @@
             true);
 
             addClass(doc, 'js-ready');
+
         };
 
         return app;
 
     })();
 
-    if (document.addEventListener) {
-    	//Changed to load JS after document is loaded anyway, so initiating fuction directly
-        //document.addEventListener('DOMContentLoaded', document.App.init, false);
-        document.App.init();
+    if (window.addEventListener) {
+        window.addEventListener('DOMContentLoaded', window.App.init, false);
     }
 
 })(window, window.document);
