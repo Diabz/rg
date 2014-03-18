@@ -20,6 +20,17 @@
 	}
 }
 
+@media screen and (min-width: 500px){
+	.about-me .img {
+		float: left;
+	}
+	.about-me h2 {
+		text-align: left !important;
+	}
+	.about-me .copy {
+		padding-left: 150px !important;
+	}
+}
 
 @media screen and (min-width: 1000px){
   
@@ -44,7 +55,7 @@
 	}
 	// Force the menu button that's always visible to keep the three lines
 	.js-nav .nav-btn .icon-menu:before {
-		content: "\e601"; 
+		content: "\e604"; 
 	}
 	
 	.js-nav .slide {

@@ -3,9 +3,9 @@
  *  Copyright (c) David Bushell | http://dbushell.com/
  *
  */
+
 (function(window, document, undefined)
 {
-
     // helper functions
 
     var trim = function(str)
@@ -49,7 +49,6 @@
     // normalize vendor prefixes
 
     var doc = document.documentElement;
-
     var transform_prop = window.Modernizr.prefixed('transform'),
         transition_prop = window.Modernizr.prefixed('transition'),
         transition_end = (function() {
@@ -63,17 +62,15 @@
             return props.hasOwnProperty(transition_prop) ? props[transition_prop] : false;
         })();
 
-    window.App = (function()
+    document.App = (function()
     {
-
         var _init = false, app = { };
 
-        var inner = document.getElementById('inner-wrap'),
+        var inner = document.getElementById('view-container'),
 
             nav_open = false,
 
             nav_class = 'js-nav';
-
 
         app.init = function()
         {
@@ -81,7 +78,6 @@
                 return;
             }
             _init = true;
-
             var closeNavEnd = function(e)
             {
                 if (e && e.target === inner) {
@@ -89,10 +85,9 @@
                 }
                 nav_open = false;
             };
-
             app.closeNav =function()
             {
-                if (nav_open) {
+                /*if (nav_open) {
                     // close navigation after transition or immediately
                     var duration = (transition_end && transition_prop) ? parseFloat(window.getComputedStyle(inner, '')[transition_prop + 'Duration']) : 0;
                     if (duration > 0) {
@@ -100,33 +95,42 @@
                     } else {
                         closeNavEnd(null);
                     }
+                }*/
+                
+                if (!nav_open) {
+                    return;
                 }
+                console.log('@@@inside closeNav() and nav_open is now '+ nav_open);
                 removeClass(doc, nav_class);
+                nav_open = false;
+                console.log('@@@Still inside closeNav() and nav_open is now '+ nav_open);
             };
-
             app.openNav = function()
             {
                 if (nav_open) {
                     return;
                 }
+                console.log('@@@inside openNav() and nav_open is now '+ nav_open);
                 addClass(doc, nav_class);
                 nav_open = true;
+                console.log('@@@Still inside openNav() and nav_open is now '+ nav_open);
             };
 
             app.toggleNav = function(e)
             {
-                if (nav_open && hasClass(doc, nav_class)) {
+	            console.log('////////////////////////////////toggleNav invoked and nav_open is now '+ nav_open);
+	            
+                if (hasClass(doc, nav_class)) {
                     app.closeNav();
-                    console.log('closeNav invoked');
-                    console.log(nav_open);
+                    console.log('closeNav invoked and nav_open is '+ nav_open);
                     
-                } else {
+                } else if (!hasClass(doc, nav_class)){
                     app.openNav();
-                    console.log('openNav invoked');
-                    console.log(nav_open);
+                    console.log('openNav invoked and nav_open is now '+ nav_open);
                 }
                 if (e) {
                     e.preventDefault();
+                    console.log('preventDefault invoked');
                 }
             };
 
@@ -135,11 +139,10 @@
 
             // close nav with main "close" button
             document.getElementById('nav-close-btn').addEventListener('click', app.toggleNav, false);
-
             // close nav by touching the partial off-screen content
-            document.addEventListener('click', function(e)
+            document.getElementById('main').addEventListener('click', function(e)
             {
-                if (nav_open && !hasParent(e.target, 'nav')) {
+                if (nav_open && !hasParent(e.target, 'nav-links')) {
                     e.preventDefault();
                     app.closeNav();
                 }
@@ -147,15 +150,16 @@
             true);
 
             addClass(doc, 'js-ready');
-
         };
 
         return app;
 
     })();
 
-    if (window.addEventListener) {
-        window.addEventListener('DOMContentLoaded', window.App.init, false);
+    if (document.addEventListener) {
+    	//Changed to load JS after document is loaded anyway, so initiating fuction directly
+        //document.addEventListener('DOMContentLoaded', document.App.init, false);
+        document.App.init();
     }
 
 })(window, window.document);

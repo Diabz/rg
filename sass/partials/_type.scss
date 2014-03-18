@@ -10,8 +10,8 @@
    ========================================================================== */
 @font-face{
 	font-family:"Lato";
-	src:url("../fonts/lato/Lato-Liglta.otf");
-	src:url("../fonts/lato/Lato-Liglta.ttf");
+	src:url("../fonts/lato/Lato-Reg.otf");
+	src:url("../fonts/lato/Lato-Reg.ttf");
 }
 
 $brandfont:'Lato',helvetica,arial,sans-serif;
@@ -101,13 +101,20 @@ blockquote {
 	padding: 0;
 }
 
-
-#main a { 
+.link-style {
 	border-bottom: 1px dotted #666;
 	color: #1414e6;
 	text-decoration: none; 
 }
 
-#main a:hover, #main a:focus, #main a:active {
+.link-style-hover {
 	border-bottom: 1px solid #0359B1;
+}
+
+#main a { 
+	@extend .link-style;
+}
+
+#main a:hover, #main a:focus, #main a:active {
+	@extend .link-style-hover;
 }
